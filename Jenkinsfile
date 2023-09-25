@@ -1,6 +1,10 @@
 pipeline {
     agent any
     tools { nodejs "node"}
+	options {
+		buildDiscarder(logRotator(numToKeepStr: '2'))
+	}
+
     environment {
         imageName = "nexrpa/react-app"
         registryCredential = 'nexrpa'
@@ -30,7 +34,7 @@ pipeline {
                     docker.withRegistry("", 'dockerhub-creds'){
                         //dockerImage.push("${env.BUILD_NUMBER}")
 						//dockerImage.push("latest")
-						dockerImage.push("${image_tag}")
+						dockerImage.push("latest")
                     }
                 }
             }
