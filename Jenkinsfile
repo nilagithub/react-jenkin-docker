@@ -30,7 +30,7 @@ pipeline {
                     docker.withRegistry("", 'dockerhub-creds'){
                         //dockerImage.push("${env.BUILD_NUMBER}")
 						//dockerImage.push("latest")
-						dockerImage.push()
+						dockerImage.push("${image_tag}")
                     }
                 }
             }
