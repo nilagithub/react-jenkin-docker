@@ -1,4 +1,7 @@
 #NILANCHAL
+Taken From ==>  https://github.com/techwithgio/JenkinsPipeline/tree/master
+Create credentials with name 'dockerhub-creds' in jenkins for docker hub which is referred in Jenkinsfile
+
 $ Open ubuntu, then "sudo service docker start"
 then in cmd
 

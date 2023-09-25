@@ -2,8 +2,8 @@ pipeline {
     agent any
     tools { nodejs "node"}
     environment {
-        imageName = "techwithgio/react-app"
-        registryCredential = 'techwithgio'
+        imageName = "nexrpa/react-app"
+        registryCredential = 'nexrpa'
         dockerImage = ''
     }
     stages {
