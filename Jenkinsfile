@@ -25,7 +25,7 @@ pipeline {
         }
 		stage("Building Image"){
             steps {
-                sh "docker image prune --filter="dangling=true" --force"				
+                sh "docker image prune --filter=dangling=true --force"				
             }
         }
 		
