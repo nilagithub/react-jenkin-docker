@@ -23,7 +23,7 @@ pipeline {
                 sh 'npm test'
             }
         }
-		stage("Building Image"){
+		stage("Cleaning Image"){
             steps {
                 sh "docker image prune --filter=dangling=true --force"				
             }
