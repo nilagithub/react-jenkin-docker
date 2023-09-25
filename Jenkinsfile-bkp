@@ -5,7 +5,6 @@ pipeline {
         imageName = "nexrpa/react-app"
         registryCredential = 'nexrpa'
         dockerImage = ''
-		image_tag = 'latest'
     }
     stages {
         stage("Install Dependencies"){
@@ -21,16 +20,17 @@ pipeline {
         }
         stage("Building Image"){
             steps {
-                sh "docker build --no-cache -t ${imageName}:${image_tag} ."
+                script {
+                    dockerImage = docker.build imageName
+                }
             }
         }
         stage("Deploy Image"){
             steps {
                 script {
-                    docker.withRegistry("", 'dockerhub-creds'){
+                    docker.withRegistry("https://registry.hub.docker.com", 'dockerhub-creds'){
                         //dockerImage.push("${env.BUILD_NUMBER}")
-						//dockerImage.push("latest")
-						dockerImage.push()
+						dockerImage.push("latest")
                     }
                 }
             }
