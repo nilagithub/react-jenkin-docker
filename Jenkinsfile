@@ -25,7 +25,10 @@ pipeline {
         }
         stage("Building Image"){
             steps {
-                sh "docker build --no-cache -t ${imageName}:${image_tag} ."
+                //sh "docker build --no-cache -t ${imageName}:${image_tag} ."
+				script {
+                    dockerImage = docker.build imageName
+                }
             }
         }
         stage("Deploy Image"){
