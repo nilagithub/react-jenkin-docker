@@ -23,6 +23,13 @@ pipeline {
                 sh 'npm test'
             }
         }
+		stage("Building Image"){
+            steps {
+                sh "docker image prune --filter="dangling=true" --force"				
+            }
+        }
+		
+
         stage("Building Image"){
             steps {
                 //sh "docker build --no-cache -t ${imageName}:${image_tag} ."
